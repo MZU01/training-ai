@@ -76,18 +76,14 @@ Puis ouvrez http://localhost:5173 dans votre navigateur Windows.
 
 ## Pour le TP
 
-Au début du TP, copiez les réglages de l'atelier dans le projet :
+Au début du TP, vous écrivez vous-même vos réglages : `.claude/settings.json` (permissions), le sandbox et un hook.
 
-```bash
-cp -r atelier/.claude .
-```
+Le dossier `atelier/` contient de quoi aller plus vite ensuite :
 
-Vous obtenez :
+- `atelier/.claude/skills/cadrer-issue/` : le skill qui transforme une issue en demande cadrée (`/cadrer-issue 12`) ;
+- `atelier/.claude/agents/relecteur.md` : un sous-agent relecteur, en lecture seule ;
+- `atelier/modele-pr.md` : le modèle de description de PR, avec sa section Vérification.
 
-- `.claude/settings.json` : le sandbox en mode strict (le `.env` illisible, le réseau limité au registre npm et à PokéAPI), les tests e2e en lecture seule pour Claude, une confirmation avant `git push`, `gh issue comment` et `gh pr create` ;
-- `.claude/skills/cadrer-issue/` : le skill qui transforme une issue en demande cadrée (`/cadrer-issue 12`) ;
-- `.claude/agents/relecteur.md` : un sous-agent relecteur, en lecture seule.
-
-`atelier/modele-pr.md` est le modèle de description de PR, avec sa section Vérification.
+Pour les copier dans le projet : `cp -r atelier/.claude .`
 
 Pour ouvrir une PR, travaillez sur votre fork : `gh repo fork --remote`, puis `gh pr create`.
