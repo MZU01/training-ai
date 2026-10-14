@@ -6,6 +6,7 @@
 class Team
 {
     const TAILLE_MAX = 6;
+    const NOM_PAR_DEFAUT = 'Mon équipe';
 
     public static function ids()
     {
@@ -51,5 +52,32 @@ class Team
     public static function vider()
     {
         $_SESSION['equipe'] = [];
+        unset($_SESSION['nom_equipe']);
+    }
+
+    public static function nom()
+    {
+        return $_SESSION['nom_equipe'] ?? self::NOM_PAR_DEFAUT;
+    }
+
+    public static function renommer($nom)
+    {
+        // 40 caractères au plus (preg plutôt que mb_substr : l'extension mbstring n'est pas toujours installée).
+        $nom = trim(preg_replace('/^(.{40}).+$/us', '$1', (string) $nom));
+        if ($nom === '') {
+            unset($_SESSION['nom_equipe']);
+        } else {
+            $_SESSION['nom_equipe'] = $nom;
+        }
+    }
+
+    /** Le premier membre de l'équipe est son chef : c'est lui qui entre en combat en premier. */
+    public static function mettreEnTete($id)
+    {
+        $id = (int) $id;
+        $ids = self::ids();
+        if (in_array($id, $ids)) {
+            $_SESSION['equipe'] = array_values(array_merge([$id], array_diff($ids, [$id])));
+        }
     }
 }

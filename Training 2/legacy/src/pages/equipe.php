@@ -12,6 +12,15 @@ if ($methode === 'POST') {
         flash('Pokémon retiré de l\'équipe.', 'succes');
         redirect('/equipe');
     }
+    if ($chemin === '/equipe/en-tete') {
+        Team::mettreEnTete($_POST['id'] ?? 0);
+        redirect('/equipe');
+    }
+    if ($chemin === '/equipe/renommer') {
+        Team::renommer($_POST['nom'] ?? '');
+        flash('Équipe renommée.', 'succes');
+        redirect('/equipe');
+    }
     if ($chemin === '/equipe/vider') {
         Team::vider();
         redirect('/equipe');
@@ -26,8 +35,12 @@ $membres = Team::membres();
 $analyse = TeamAnalyzer::analyser($membres);
 
 render('equipe', [
-    'titre' => 'Mon équipe',
+    'titre' => Team::nom(),
+    'nom' => Team::nom(),
     'membres' => $membres,
     'analyse' => $analyse,
     'pire' => TeamAnalyzer::pireFaiblesse($analyse),
+    'profil' => TeamAnalyzer::profil($membres),
+    'enDouble' => TeamAnalyzer::typesEnDouble($membres),
+    'export' => TeamAnalyzer::exporter(Team::nom(), $membres),
 ]);

@@ -44,8 +44,25 @@ th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--bor
 .barre { display: block; height: 10px; background: var(--accent); border-radius: 5px; }
 .defense { max-width: 400px; }
 .faible td { color: var(--accent); font-weight: 600; }
-.analyse .membre { display: inline-block; margin-right: 10px; }
-.analyse tr.critique { background: #fdecea; }
+.carte.chef { border: 2px solid var(--accent); }
+.etiquette { font-size: 0.8em; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+.actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.matrice th, .matrice td { text-align: center; padding: 4px 6px; }
+.matrice th:first-child { text-align: left; }
+.membre-col { font-weight: 600; font-size: 0.85em; vertical-align: bottom; }
+.membre-col img { display: block; margin: 0 auto; }
+.matrice tr.critique { background: #fdecea; }
+.mult { display: inline-block; min-width: 2.6em; padding: 2px 6px; border-radius: 6px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.mult-4 { background: #a61b1b; color: #fff; }
+.mult-2 { background: #f4b4ac; color: #6b1010; }
+.mult-05 { background: #c7e6c1; color: #1e5a16; }
+.mult-025 { background: #3f8f35; color: #fff; }
+.mult-0 { background: #3d4a5c; color: #fff; }
+.legende { color: var(--discret); line-height: 2; }
+.bilan { font-size: 0.9em; white-space: nowrap; }
+.bilan.negatif { color: #a61b1b; font-weight: 600; }
+.bilan.positif { color: #2f6b27; }
+.membre { display: inline-block; margin-right: 10px; }
 .formes { padding-left: 20px; }
 .formulaire { display: flex; flex-direction: column; gap: 8px; max-width: 320px; }
 .type-normal { background: #9FA19F; }
