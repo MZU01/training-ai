@@ -9,6 +9,7 @@ const ROUTES_PHP = [
   "/partage",
   "/api",
   "/legacy-assets",
+  "/sprites",
 ];
 
 const PHP = "http://127.0.0.1:8000";

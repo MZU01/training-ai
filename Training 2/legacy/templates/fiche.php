@@ -1,5 +1,7 @@
 <p class="discret"><a href="/pokedex">← Pokédex</a></p>
 
+<?= sprite($pokemon['id'], 192) ?>
+
 <h1><?= h($pokemon['nom']) ?> <span class="numero"><?= numero($pokemon['id']) ?></span></h1>
 
 <p class="types"><?php foreach ($pokemon['types'] as $badge) { require ROOT . '/templates/partials/type-badge.php'; } ?></p>

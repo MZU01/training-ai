@@ -60,6 +60,8 @@ const cachePlaywright = `${homedir()}/.cache/ms-playwright`;
 const chromium = existsSync(cachePlaywright) && readdirSync(cachePlaywright).some((d) => d.startsWith('chromium'));
 verifier('Navigateur des tests e2e (Chromium)', chromium, 'npx playwright install --with-deps chromium');
 
+verifier('Images des Pokémon', existsSync(`${racine}/legacy/public/sprites/25.png`), 'npm run sprites', false);
+
 verifier('Fichier .env présent', existsSync(`${racine}/.env`), 'relancez ./setup.sh');
 
 verifier('Port 8000 libre (PHP)', await portLibre(8000), 'un autre programme utilise le port 8000 : fermez-le');

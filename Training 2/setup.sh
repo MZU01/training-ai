@@ -35,6 +35,9 @@ etape "Dépendances du projet"
 npm install --no-fund --no-audit
 npx playwright install --with-deps chromium
 
+etape "Images des Pokémon"
+npm run sprites || echo "⚠ Images non téléchargées : l'application marche sans. Relancez npm run sprites plus tard."
+
 etape "Fichier .env"
 if [ ! -f .env ]; then
   jeton="faux-$(head -c 12 /dev/urandom | od -An -tx1 | tr -d ' \n')"

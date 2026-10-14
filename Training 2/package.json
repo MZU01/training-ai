@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit -p web",
     "check": "npm run typecheck && npm test && npm run test:e2e",
     "doctor": "node scripts/doctor.mjs",
-    "snapshot": "node scripts/snapshot.mjs"
+    "snapshot": "node scripts/snapshot.mjs",
+    "sprites": "node scripts/sprites.mjs"
   },
   "dependencies": {
     "react": "^19.3.0",

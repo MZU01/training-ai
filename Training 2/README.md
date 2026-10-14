@@ -2,7 +2,7 @@
 
 Le projet d'exercice de l'atelier Claude Code. C'est une petite application web qui aide à composer une équipe de six Pokémon équilibrée.
 
-Projet pédagogique et fictif, non affilié à Nintendo ni à The Pokémon Company. Les données viennent de [PokéAPI](https://pokeapi.co).
+Projet pédagogique et fictif, non affilié à Nintendo ni à The Pokémon Company. Les données viennent de [PokéAPI](https://pokeapi.co). Les images des Pokémon (© The Pokémon Company) ne sont pas dans le dépôt : `setup.sh` les télécharge depuis [PokeAPI/sprites](https://github.com/PokeAPI/sprites) (`npm run sprites`).
 
 ## Ce que fait l'application
 

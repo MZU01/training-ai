@@ -10,6 +10,16 @@ type Props = {
 export function PokemonCard({ pokemon, onAjouter }: Props) {
   return (
     <li className="carte">
+      {/* Servie par PHP depuis legacy/public/sprites/ ; masquée si l'image n'a pas été téléchargée. */}
+      <img
+        className="sprite"
+        src={`/sprites/${pokemon.id}.png`}
+        alt=""
+        width={96}
+        height={96}
+        loading="lazy"
+        onError={(e) => (e.currentTarget.style.display = "none")}
+      />
       <span className="numero">{numero(pokemon.id)}</span>
       {/* La fiche est encore une page PHP. */}
       <a className="nom" href={`/pokemon/${pokemon.id}`}>

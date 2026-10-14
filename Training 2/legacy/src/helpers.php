@@ -66,6 +66,15 @@ function format_poids($hectogrammes)
     return number_format($hectogrammes / 10, 1, ',', ' ') . ' kg';
 }
 
+/** L'image du Pokémon, si elle a été téléchargée (npm run sprites). */
+function sprite($id, $taille = 96)
+{
+    if (!is_file(ROOT . '/public/sprites/' . (int) $id . '.png')) {
+        return '';
+    }
+    return '<img class="sprite" src="/sprites/' . (int) $id . '.png" alt="" width="' . $taille . '" height="' . $taille . '" loading="lazy">';
+}
+
 function numero($id)
 {
     return '#' . str_pad($id, 4, '0', STR_PAD_LEFT);

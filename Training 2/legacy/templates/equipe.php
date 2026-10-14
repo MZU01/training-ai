@@ -6,6 +6,7 @@
     <ul class="grille" data-equipe>
         <?php foreach ($membres as $p): ?>
             <li class="carte">
+                <?= sprite($p['id']) ?>
                 <span class="numero"><?= numero($p['id']) ?></span>
                 <a class="nom" href="/pokemon/<?= (int) $p['id'] ?>"><?= h($p['nom']) ?></a>
                 <span class="types"><?php foreach ($p['types'] as $badge) { require ROOT . '/templates/partials/type-badge.php'; } ?></span>

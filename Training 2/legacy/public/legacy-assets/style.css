@@ -12,7 +12,8 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
 a { color: inherit; }
 h1 { margin: 8px 0 16px; }
-h1 .numero { font-weight: 400; }
+h1 .sprite { image-rendering: pixelated; align-self: center; }
+.numero { font-weight: 400; }
 .nav { display: flex; gap: 24px; align-items: center; padding: 12px 24px; background: var(--texte); color: #fff; }
 .nav a { color: #fff; text-decoration: none; margin-right: 16px; }
 .nav .logo { font-weight: 700; }
