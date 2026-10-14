@@ -1,0 +1,7 @@
+node_modules/
+.env
+legacy/var/*.log
+test-results/
+playwright-report/
+dist/
+.claude/worktrees/
