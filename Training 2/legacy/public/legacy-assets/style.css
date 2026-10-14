@@ -1,0 +1,85 @@
+/* Styles des pages PHP. La partie React les réutilise pendant la migration. */
+:root {
+  --fond: #f7f5f0;
+  --texte: #1d2433;
+  --discret: #5f6672;
+  --accent: #c0392b;
+  --carte: #ffffff;
+  --bord: #e2ded5;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--fond); color: var(--texte); }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+a { color: inherit; }
+h1 { margin: 8px 0 16px; }
+h1 .sprite { image-rendering: pixelated; align-self: center; }
+.numero { font-weight: 400; }
+.nav { display: flex; gap: 24px; align-items: center; padding: 12px 24px; background: var(--texte); color: #fff; }
+.nav a { color: #fff; text-decoration: none; margin-right: 16px; }
+.nav .logo { font-weight: 700; }
+.compteur { font-size: 0.85em; opacity: 0.8; }
+footer { text-align: center; color: var(--discret); font-size: 0.85em; padding: 24px; }
+.discret { color: var(--discret); }
+.filtres { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+input, select, button { font: inherit; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--bord); }
+button { background: var(--accent); color: #fff; border: none; cursor: pointer; }
+button.secondaire { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+form.inline { display: inline; }
+.grille { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.carte { background: var(--carte); border: 1px solid var(--bord); border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.carte .nom { font-weight: 600; font-size: 1.1em; }
+.numero { color: var(--discret); font-variant-numeric: tabular-nums; }
+.type { display: inline-block; padding: 2px 10px; margin-right: 4px; border-radius: 999px; color: #fff; font-size: 0.85em; font-weight: 600; }
+.flash { padding: 10px 14px; border-radius: 8px; background: #e8eef9; }
+.flash-succes { background: #e3f4e1; }
+.flash-erreur { background: #fbe3e1; }
+.alerte { padding: 10px 14px; border-radius: 8px; background: #fff4d6; }
+.mesures { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+.mesures dd { margin: 0; }
+table { border-collapse: collapse; width: 100%; background: var(--carte); }
+th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--bord); }
+.stats { max-width: 600px; }
+.stats th { width: 40%; }
+.stats .valeur { width: 4em; font-variant-numeric: tabular-nums; }
+.barre { display: block; height: 10px; background: var(--accent); border-radius: 5px; }
+.defense { max-width: 400px; }
+.faible td { color: var(--accent); font-weight: 600; }
+.carte.chef { border: 2px solid var(--accent); }
+.etiquette { font-size: 0.8em; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+.actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.matrice th, .matrice td { text-align: center; padding: 4px 6px; }
+.matrice th:first-child { text-align: left; }
+.membre-col { font-weight: 600; font-size: 0.85em; vertical-align: bottom; }
+.membre-col img { display: block; margin: 0 auto; }
+.matrice tr.critique { background: #fdecea; }
+.mult { display: inline-block; min-width: 2.6em; padding: 2px 6px; border-radius: 6px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.mult-4 { background: #a61b1b; color: #fff; }
+.mult-2 { background: #f4b4ac; color: #6b1010; }
+.mult-05 { background: #c7e6c1; color: #1e5a16; }
+.mult-025 { background: #3f8f35; color: #fff; }
+.mult-0 { background: #3d4a5c; color: #fff; }
+.legende { color: var(--discret); line-height: 2; }
+.bilan { font-size: 0.9em; white-space: nowrap; }
+.bilan.negatif { color: #a61b1b; font-weight: 600; }
+.bilan.positif { color: #2f6b27; }
+.membre { display: inline-block; margin-right: 10px; }
+.formes { padding-left: 20px; }
+.formulaire { display: flex; flex-direction: column; gap: 8px; max-width: 320px; }
+.type-normal { background: #9FA19F; }
+.type-fighting { background: #FF8000; }
+.type-flying { background: #81B9EF; }
+.type-poison { background: #9141CB; }
+.type-ground { background: #915121; }
+.type-rock { background: #AFA981; }
+.type-bug { background: #91A119; }
+.type-ghost { background: #704170; }
+.type-steel { background: #60A1B8; }
+.type-fire { background: #E62829; }
+.type-water { background: #2980EF; }
+.type-grass { background: #3FA129; }
+.type-electric { background: #FAC000; }
+.type-psychic { background: #EF4179; }
+.type-ice { background: #3DCEF3; }
+.type-dragon { background: #5060E1; }
+.type-dark { background: #624D4E; }
+.type-fairy { background: #EF70EF; }

@@ -1,0 +1,9 @@
+node_modules/
+.env
+legacy/var/*.log
+# Images © The Pokémon Company : téléchargées par npm run sprites, jamais commitées.
+legacy/public/sprites/
+test-results/
+playwright-report/
+dist/
+.claude/worktrees/
