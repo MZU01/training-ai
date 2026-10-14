@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "deny": ["Read(./.env)", "Edit(e2e/**)"],
+    "ask": ["Bash(git push:*)", "Bash(gh issue comment:*)", "Bash(gh pr create:*)"]
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyRead": ["./.env"]
+    },
+    "network": {
+      "allowedDomains": ["registry.npmjs.org", "graphql.pokeapi.co"]
+    }
+  }
+}
