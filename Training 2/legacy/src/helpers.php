@@ -46,6 +46,25 @@ function flash($message = null, $genre = 'info')
     return $flash;
 }
 
+/**
+ * Les types d'attaque dont le multiplicateur contre ces types n'est pas 1, du plus fort au plus faible.
+ * Utilisée par la fiche PHP et par l'API de la fiche React.
+ */
+function table_defense(array $types)
+{
+    $defense = [];
+    foreach (TypeChart::types() as $attaque) {
+        $m = TypeChart::multiplicateur($attaque, $types);
+        if ($m != 1) {
+            $defense[] = ['type' => $attaque, 'multiplicateur' => $m];
+        }
+    }
+    usort($defense, function ($a, $b) {
+        return $b['multiplicateur'] <=> $a['multiplicateur'];
+    });
+    return $defense;
+}
+
 /** 2 → « ×2 », 0.5 → « ×½ », 0.25 → « ×¼ ». */
 function format_multiplicateur($m)
 {

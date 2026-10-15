@@ -12,6 +12,25 @@ export function listerPokemon(): Promise<PokemonResume[]> {
   return getJson<PokemonResume[]>("/api/pokemon");
 }
 
+export type Fiche = PokemonResume & {
+  taille: number;
+  poids: number;
+  stats: Record<string, number>;
+  defense: { type: string; multiplicateur: number }[];
+  formes: { id: number; nom: string }[];
+  dansEquipe: boolean;
+};
+
+/** La fiche d'un Pokémon, ou null s'il n'existe pas. */
+export async function chargerFiche(id: string): Promise<Fiche | null> {
+  const reponse = await fetch(`/api/pokemon/${id}/fiche`, {
+    headers: { Accept: "application/json" },
+  });
+  if (reponse.status === 404) return null;
+  if (!reponse.ok) throw new Error(`Fiche ${id} : ${reponse.status}`);
+  return reponse.json() as Promise<Fiche>;
+}
+
 type ReponseAjout =
   { ok: true; equipe: number[] } | { ok: false; erreur: string };
 

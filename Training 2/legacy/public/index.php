@@ -16,6 +16,7 @@ if ($chemin === '/pokedex' && $methode === 'GET') {
     exit;
 }
 if (preg_match('#^/pokemon/(\d+)$#', $chemin, $m) && $methode === 'GET') {
+    // Remplacée par la page React (web/src/pages/FichePage.tsx), conservée le temps de la migration.
     $id = (int) $m[1];
     require ROOT . '/src/pages/fiche.php';
     exit;

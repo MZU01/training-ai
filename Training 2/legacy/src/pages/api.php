@@ -1,6 +1,6 @@
 <?php
 
-// API JSON ajoutée pour la migration vers React. Elle ne couvre que ce dont la page Pokédex a besoin.
+// API JSON ajoutée pour la migration vers React. Elle ne couvre que ce dont les pages React ont besoin.
 
 function resume($p)
 {
@@ -25,6 +25,22 @@ if ($chemin === '/api/pokemon' && $methode === 'GET') {
 if (preg_match('#^/api/pokemon/(\d+)$#', $chemin, $m) && $methode === 'GET') {
     $pokemon = PokemonRepository::trouver((int) $m[1]);
     $pokemon ? json_response($pokemon) : json_response(['erreur' => 'Pokémon inconnu.'], 404);
+}
+
+// Tout ce qu'affiche la fiche (web/src/pages/FichePage.tsx), calculé comme pour la fiche PHP.
+// La table de défense en garde les défauts : pas de type Fée, et les immunités (×0) n'apparaissent pas.
+if (preg_match('#^/api/pokemon/(\d+)/fiche$#', $chemin, $m) && $methode === 'GET') {
+    $pokemon = PokemonRepository::trouver((int) $m[1]);
+    if (!$pokemon) {
+        json_response(['erreur' => 'Pokémon inconnu.'], 404);
+    }
+    json_response($pokemon + [
+        'defense' => table_defense($pokemon['types']),
+        'formes' => array_map(function ($forme) {
+            return ['id' => $forme['id'], 'nom' => $forme['nom']];
+        }, PokemonRepository::formes($pokemon)),
+        'dansEquipe' => in_array($pokemon['id'], Team::ids()),
+    ]);
 }
 
 if ($chemin === '/api/equipe' && $methode === 'POST') {

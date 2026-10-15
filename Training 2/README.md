@@ -17,8 +17,8 @@ C'est une vieille application PHP qu'on migre vers React, page par page.
 
 | Dossier    | Contenu                                                                                                                       |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `legacy/`  | L'application PHP d'origine, sans framework : les pages Fiche, Mon équipe et Partager, et l'API JSON                          |
-| `web/`     | La nouvelle interface en React et TypeScript. Seule la page Pokédex est migrée                                                |
+| `legacy/`  | L'application PHP d'origine, sans framework : les pages Mon équipe et Partager, et l'API JSON                                 |
+| `web/`     | La nouvelle interface en React et TypeScript. Les pages Pokédex et Fiche sont migrées                                         |
 | `data/`    | Les données, copiées de PokéAPI. `npm run snapshot` les télécharge à nouveau                                                  |
 | `e2e/`     | Les tests de bout en bout (Playwright). Ils passent par l'adresse de l'application, quelle que soit la technologie de la page |
 | `scripts/` | Le lancement (`dev`), la vérification du poste (`doctor`) et la mise à jour des données (`snapshot`)                          |

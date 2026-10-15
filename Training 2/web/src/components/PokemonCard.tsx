@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { PokemonResume } from "../api/pokemon";
 import { numero } from "../lib/format";
 import { TypeBadge } from "./TypeBadge";
@@ -21,10 +22,9 @@ export function PokemonCard({ pokemon, onAjouter }: Props) {
         onError={(e) => (e.currentTarget.style.display = "none")}
       />
       <span className="numero">{numero(pokemon.id)}</span>
-      {/* La fiche est encore une page PHP. */}
-      <a className="nom" href={`/pokemon/${pokemon.id}`}>
+      <Link className="nom" to={`/pokemon/${pokemon.id}`}>
         {pokemon.nom}
-      </a>
+      </Link>
       <span className="types">
         {pokemon.types.map((type) => (
           <TypeBadge key={type} type={type} />
